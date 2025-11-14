@@ -1,4 +1,4 @@
-# ``swift-prompt-builder``
+# ``PromptBuilder``
 
 A declarative Swift library for building structured prompts using result builders.
 
