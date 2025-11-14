@@ -20,7 +20,7 @@ Add this to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/jagreenwood/swift-prompt-builder.git", from: "0.1.0")
+    .package(url: "https://github.com/jagreenwood/swift-prompt-builder.git", from: "1.0.0")
 ]
 ```
 
@@ -153,7 +153,7 @@ let featurePrompt = Prompt {
 ## Requirements
 
 - Swift 5.5+
-- iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
+- iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+ / Linux
 
 ## License
 
