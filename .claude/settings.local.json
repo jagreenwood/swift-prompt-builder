@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(swift test:*)",
+      "Bash(.build/arm64-apple-macosx/debug/swift-prompt-builderPackageTests.xctest/Contents/MacOS/swift-prompt-builderPackageTests:*)",
+      "Bash(xcrun xctest:*)",
+      "Bash(swift build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
