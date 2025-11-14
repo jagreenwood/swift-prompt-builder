@@ -1,0 +1,50 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift Ubuntu
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: Build Swift
+    strategy:
+      matrix:
+        swift: ["5.9", "5.10", "6.0"]
+
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: sudo apt-get -y install libcurl4-openssl-dev pkg-config python3-lldb-13
+
+    - name: Install Swiftly
+      run: |
+        curl -O https://download.swift.org/swiftly/linux/swiftly-$(uname -m).tar.gz && \
+        tar zxf swiftly-$(uname -m).tar.gz && \
+        ./swiftly init --skip-install --assume-yes
+
+        . ~/.local/share/swiftly/env.sh
+        echo "PATH=$PATH" >> $GITHUB_ENV
+
+    - name: Install Swift
+      run: |
+        swiftly install ${{ matrix.swift }}
+
+    - name: Get Swift version
+      run: swift --version
+
+    - name: Run tests
+      run: |
+        swift build --build-tests
+        swift test

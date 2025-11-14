@@ -34,7 +34,7 @@ jobs:
 
       - name: Bump version
         id: bump
-        uses: Mobelux/bump-version-action@v1
+        uses: jagreenwood/bump-version-action@v1
         with:
           release-type: ${{ inputs.release_type }}
           version: ${{ steps.get_current_version.outputs.result }}
